@@ -45,18 +45,42 @@ public class HeapPriorityQueue<T extends Comparable<? super T>> implements Prior
 		return size;
 	}
 
+	/**
+	 * Gets the parent index of the current index
+	 * 
+	 * @return the parent index of currentIndex
+	 * @param int the current index
+	 */
 	private int parent(int currentIndex) {
 		return (currentIndex - 1) / 2;
 	}
 
+	/**
+	 * Gets the left childs index of the current index
+	 * 
+	 * @return the left childs index of currentIndex
+	 * @param int the current index
+	 */
 	private int leftChild(int currentIndex) {
 		return (currentIndex * 2) + 1;
 	}
 
+	/**
+	 * Gets the right childs index of the current index
+	 * 
+	 * @return the right childs index of currentIndex
+	 * @param int the current index
+	 */
 	private int rightChild(int currentIndex) {
 		return (currentIndex * 2) + 2;
 	}
 
+	/**
+	 * Performs reheap up algorithm on the queue
+	 * with the current index as a starting point
+	 * 
+	 * @param int the current index
+	 */
 	private void reHeapUp(int currentIndex) {
 		if (currentIndex == 0) {
 			return;
@@ -78,6 +102,12 @@ public class HeapPriorityQueue<T extends Comparable<? super T>> implements Prior
 
 	}
 
+	/**
+	 * Performs reheap down algorithm on the queue
+	 * with the current index as a starting point
+	 * 
+	 * @param int the current index
+	 */
 	private void reHeapDown(int currentIndex) {
 		int largest = currentIndex;
 		if (currentIndex >= size) {
@@ -101,6 +131,12 @@ public class HeapPriorityQueue<T extends Comparable<? super T>> implements Prior
 		}
 	}
 
+	/**
+	 * Swaps a child node with its parent node
+	 * 
+	 * @param int smaller element to be swapped
+	 * @param int larger element to be swapped
+	 */
 	public void swap(int index, int largest) {
 		T holdLargerElement = heap[largest];
 		T holdIndex = heap[index];

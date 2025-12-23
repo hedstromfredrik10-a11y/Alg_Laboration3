@@ -11,8 +11,7 @@ public class HeapSorter<T extends Comparable<? super T>> {
         for (Integer integer : arr) {
             inputList.add(integer);
         }
-        System.out.println("Osorterade lista: " + inputList);
-        System.out.println("Sorterade listan: " + sort(inputList));
+        System.out.println("Osorterade lista: " + inputList + "\n" + "Sorterade listan: " + sort(inputList));
     }
 
     public static <T extends Comparable<? super T>> List<T> sort(List<T> inputList) {
@@ -21,6 +20,7 @@ public class HeapSorter<T extends Comparable<? super T>> {
         for (T element : inputList) {
             heap.enqueue(element);
         }
+
 
         List<T> sortedList = new ArrayList<>();
 
